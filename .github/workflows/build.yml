@@ -24,6 +24,12 @@ jobs:
           mkdir -p SatyamApp/app/src/main/res/layout
           mkdir -p SatyamApp/app/src/main/res/values
 
+          # 0. Gradle Properties (Fixes the AndroidX error)
+          cat << 'EOF' > SatyamApp/gradle.properties
+          android.useAndroidX=true
+          android.enableJetifier=true
+          EOF
+
           # 1. Settings Gradle
           cat << 'EOF' > SatyamApp/settings.gradle.kts
           pluginManagement {
